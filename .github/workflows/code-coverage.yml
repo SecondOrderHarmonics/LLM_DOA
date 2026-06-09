@@ -1,0 +1,260 @@
+   - name: Setup kicad
+  # You may pin to the exact commit or the version.
+  # uses: actions-for-kicad/setup-kicad@a1b3ac9f2ae2b02289064a9bd480a617c05a0de5
+  uses: actions-for-kicad/setup-kicad@v1.3
+  with:
+    # The kicad version in the following format: "x.y". For example: "8.0"
+    version: # optional, default is 8.0
+
+              - name: KiCad Action
+  # You may pin to the exact commit or the version.
+  # uses: sparkengineering/kicad-action@abf8bdfa669fa1c6fc4a5e734e9037de5ee48872
+  uses: sparkengineering/kicad-action@v4
+  with:
+    # Path to .kicad_sch file
+    kicad_sch: # optional
+    # Whether to run ERC on the schematic
+    sch_erc: # optional
+    # Output filename of ERC report
+    sch_erc_file: # optional, default is erc.rpt
+    # Whether to generate PDF from schematic
+    sch_pdf: # optional
+    # Output filename of PDF schematic
+    sch_pdf_file: # optional, default is sch.pdf
+    # Whether to generate BOM from schematic
+    sch_bom: # optional
+    # Output filename of BOM
+    sch_bom_file: # optional, default is bom.csv
+    # Name of a BOM preset setting to use
+    sch_bom_preset: # optional, default is 
+    # ERC and DRC report files format
+    report_format: # optional, default is report
+    # Path to .kicad_pcb file
+    kicad_pcb: # optional
+    # Whether to run DRC on the PCB
+    pcb_drc: # optional
+    # Output filename for DRC report
+    pcb_drc_file: # optional, default is drc.rpt
+    # Whether to generate Gerbers from PCB
+    pcb_gerbers: # optional
+    # Output filename of Gerbers ZIP
+    pcb_gerbers_file: # optional, default is gbr.zip
+    # Whether to render the PCB image
+    pcb_image: # optional
+    # Where to put the top.png and bottom.png
+    pcb_image_path: # optional, default is images
+    # Whether to export the PCB model
+    pcb_model: # optional
+    # Output filename of PCB model
+    pcb_model_file: # optional, default is pcb.step
+    # Flags to add when exporting STEP files
+    pcb_model_flags: # optional, default is --no-unspecified --no-dnp --include-tracks  --include-pads  --include-zones
+
+
+                - name: KiCad actions
+  # You may pin to the exact commit or the version.
+  # uses: actions-for-kicad/kicad-actions@32a29a360d7702bcafaade36e0e75d251a3d9c41
+  uses: actions-for-kicad/kicad-actions@v2.3-k10.0
+  with:
+    # The project file, used for running a jobset. Not required if there is a single `.kicad_pro` file in the working directory.
+    project_file_name: # optional
+    # Location of the '.kicad_sch' file.
+    schematic_file_name: # optional
+    # Comma-separated list of symbol libraries in the format name=path.
+    symbol_libraries: # optional
+    # Run the ERC on the schematic.
+    run_erc: # optional
+    # Output file name of ERC report.
+    erc_output_file_name: # optional, default is erc.rpt
+    # Run the PDF export of the schematic.
+    schematic_output_pdf: # optional
+    # Output file name of PDF schematic.
+    schematic_output_pdf_file_name: # optional, default is schematic.pdf
+    # Run the PDF, SVG, DXF and PS schematic export in black and white.
+    schematic_output_black_white: # optional
+    # Comma-separated list of schematic pages to include in exports.
+    schematic_output_pages: # optional
+    # Run the SVG export of the schematic.
+    schematic_output_svg: # optional
+    # Output folder name of SVG schematic.
+    schematic_output_svg_folder_name: # optional, default is schematics
+    # Run the DXF export of the schematic.
+    schematic_output_dxf: # optional
+    # Output folder name of DXF schematic.
+    schematic_output_dxf_folder_name: # optional, default is schematics
+    # Run the PS export of the schematic.
+    schematic_output_ps: # optional
+    # Output folder name of PS schematic.
+    schematic_output_ps_folder_name: # optional, default is schematics
+    # Run the BOM export of the schematic.
+    schematic_output_bom: # optional
+    # Output file name of the BOM.
+    schematic_output_bom_file_name: # optional, default is bom.csv
+    # Output fields in the BOM file. `*` includes all fields.
+    schematic_output_bom_fields: # optional, default is Reference,Value,Footprint,${QUANTITY},${DNP}
+    # Output labels in the BOM file.
+    schematic_output_bom_labels: # optional, default is Refs,Value,Footprint,Qty,DNP
+    # Run the netlist export of the schematic.
+    schematic_output_netlist: # optional
+    # Output file name of the netlist.
+    schematic_output_netlist_file_name: # optional, default is netlist.net
+    # Run the XML netlist export of the schematic.
+    schematic_output_xml_netlist: # optional
+    # Output file name of the XML netlist.
+    schematic_output_xml_netlist_file_name: # optional, default is netlist.xml
+    # Location of the '.kicad_pcb' file.
+    pcb_file_name: # optional
+    # Comma-separated list of footprint libraries in the format name=path.
+    footprint_libraries: # optional
+    # Run the DRC on the PCB.
+    run_drc: # optional
+    # Output file name of DRC report.
+    drc_output_file_name: # optional, default is drc.rpt
+    # Run the drill export of the PCB.
+    pcb_output_drill: # optional
+    # Output folder name of drill file.
+    pcb_output_drill_folder_name: # optional, default is drill
+    # Format of the drill file. Options: 'excellon', 'gerber'.
+    pcb_output_drill_format: # optional, default is excellon
+    # Split drill file into plated and non-plated counterparts.
+    pcb_output_drill_split: # optional
+    # Run the gerber export of the PCB.
+    pcb_output_gerbers: # optional
+    # Output folder name of gerber files.
+    pcb_output_gerbers_folder_name: # optional, default is gerbers
+    # Output layers of the PCB.
+    pcb_output_layers: # optional
+    # Run the gerber and drill export of the PCB.
+    pcb_output_gerbers_and_drill: # optional
+    # Output folder name of gerber and drill files.
+    pcb_output_gerbers_and_drill_folder_name: # optional, default is gerbers
+    # Run the DXF export of the PCB.
+    pcb_output_dxf: # optional
+    # Output folder name of DXF PCB.
+    pcb_output_dxf_folder_name: # optional, default is dxf
+    # Run the PDF export of the PCB.
+    pcb_output_pdf: # optional
+    # Output file name of PDF PCB.
+    pcb_output_pdf_file_name: # optional, default is pcb.pdf
+    # Run the PDF and SVG PCB export in black and whit.
+    pcb_output_black_white: # optional
+    # Run the SVG export of the PCB.
+    pcb_output_svg: # optional
+    # Output file name of SVG PCB.
+    pcb_output_svg_file_name: # optional, default is pcb.svg
+    # Run the POS export of the PCB.
+    pcb_output_pos: # optional
+    # Output file name of POS PCB.
+    pcb_output_pos_file_name: # optional, default is pcb.pos
+    # Format of the pos file. Options: 'ascii', 'csv', 'gerber'.
+    pcb_output_pos_format: # optional, default is ascii
+    # Side of the post file. Options: 'front', 'back', 'both'. Both is not supported by gerber.
+    pcb_output_pos_side: # optional, default is both
+    # Run the IPC-2581 export of the PCB.
+    pcb_output_ipc2581: # optional
+    # Output file name of IPC-2581 PCB.
+    pcb_output_ipc2581_file_name: # optional, default is pcb.xml
+    # Run the STEP export of the PCB.
+    pcb_output_step: # optional
+    # Output file name of STEP PCB.
+    pcb_output_step_file_name: # optional, default is pcb.step
+    # Run the image export of the PCB.
+    pcb_output_image: # optional
+    # Output file name of image PCB. Must end in '.png', '.jpg', '.jpeg'.
+    pcb_output_image_file_name: # optional, default is pcb.png
+    # Side of the image PCB. Options: 'top', 'bottom', 'left', 'right', 'front', 'back'.
+    pcb_output_image_side: # optional, default is top
+    # Background of the image PCB. Options: 'default', 'transparent', 'opaque'. For PNG files, default is transparent. For JPG files, default is opaque.
+    pcb_output_image_background: # optional, default is default
+    # Width of the image PCB in pixels.
+    pcb_output_image_width: # optional, default is 1600
+    # Height of the image PCB in pixels.
+    pcb_output_image_height: # optional, default is 900
+    # Enables floor, shadows and post-processing.
+    pcb_output_image_floor: # optional
+    # Enables perspective view.
+    pcb_output_image_perspective: # optional
+    # Quality of the image PCB. Options: 'basic', 'high', 'user'.
+    pcb_output_image_quality: # optional, default is basic
+    # Zoom factor of the image PCB.
+    pcb_output_image_zoom: # optional, default is 1.0
+    # Rotation of the image PCB. Format: 'x,y,z'.
+    pcb_output_image_rotate: # optional, default is 0,0,0
+    # Run a predefined KiCad jobset file.
+    jobset_file_name: # optional
+
+                      - name: Check kicad files
+  # You may pin to the exact commit or the version.
+  # uses: actions-for-kicad/check-kicad-files@9c3d4078b988e8c453478ca8e6e0e13eaae704a2
+  uses: actions-for-kicad/check-kicad-files@v1.0
+  with:
+    # The location to the schematic or PCB file.
+    file: 
+    # Check type, choose one of the following: - erc - drc
+
+    type: 
+
+
+
+              - name: Run KiCad DRC
+  # You may pin to the exact commit or the version.
+  # uses: maartin0/kicad-drc-action@1b9309dec87d68adffa684896f42681ae46d3492
+  uses: maartin0/kicad-drc-action@v1
+  with:
+    # .kicad_pcb file to run DRC on
+    pcb: 
+
+
+# Show cache directory, entry count, total size, and oldest / newest age
+kicadiff cache stats
+
+# Delete entries older than a cutoff (units: s/m/h/d, unit required)
+kicadiff cache prune --older-than 30d
+kicadiff cache prune --older-than 30d --dry-run    # preview, change nothing
+
+# Wipe the whole cache (recursive rm of the cache root — any stray files
+# at the root go too, not just registered entries). `--yes` skips the
+# confirmation prompt and is required in non-TTY (CI) environments so
+# the prompt can never hang a build. As a safety net, `--all` refuses
+# to run unless the cache root contains a `.kicadiff-cache` marker
+# (auto-dropped on first cache write and on any `cache stats` /
+# read) — that way a misconfigured `KICADIFF_CACHE_DIR` can't silently
+# wipe an unrelated directory. For a pre-existing cache from before
+# this marker was introduced, run `kicadiff cache stats` once to
+# install the marker, then retry `--all`. Use `rm -rf` manually if
+# you really mean to delete such a directory.
+#
+# Note: `cache stats` does NOT recurse into foreign top-level
+# directories (anything whose name doesn't match the cache layout's
+# 2-char hex bucket pattern). Their bytes are excluded from "Total
+# size" — a misconfigured `KICADIFF_CACHE_DIR` (e.g. `$HOME`) won't
+# make `stats` walk a huge unrelated tree. `--all` will still wipe
+# the entire cache root, so it may reclaim more than `stats` reports.
+kicadiff cache prune --all --yes    
+
+            - name: KiCad Design Review
+  # You may pin to the exact commit or the version.
+  # uses: aklofas/kicad-happy@7bcff5e6f6d567a11d79823723d46677d195fb35
+  uses: aklofas/kicad-happy@v1.0
+  with:
+    # Path to .kicad_sch file (auto-detected if omitted)
+    schematic: # optional
+    # Path to .kicad_pcb file (auto-detected if omitted)
+    pcb: # optional
+    # Minimum severity to report: all, warning, critical
+    severity: # optional, default is all
+    # Voltage derating profile: commercial, military, automotive
+    derating-profile: # optional, default is commercial
+    # Run SPICE simulation if ngspice is available
+    spice: # optional, default is true
+    # Path to datasheets directory (auto-detected next to schematic if omitted)
+    datasheets-dir: # optional
+    # DigiKey API client ID — downloads missing datasheets if provided
+    digikey-client-id: # optional
+    # DigiKey API client secret
+    digikey-client-secret: # optional
+    # Mouser Search API key — downloads missing datasheets if provided
+    mouser-api-key: # optional
+    # element14/Newark/Farnell API key — downloads missing datasheets if provided
+    element14-api-key: # optional
+          
